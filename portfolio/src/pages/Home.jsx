@@ -1,16 +1,35 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowDownTrayIcon } from '@heroicons/react/24/outline';
+import { useState } from 'react';
 
 const Home = () => {
-  const handleDownloadCV = () => {
-    // Create a temporary link element
-    const link = document.createElement('a');
-    link.href = '/cv.pdf'; // Replace with your actual CV file path
-    link.download = 'Benjamin_CV.pdf'; // The name of the downloaded file
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+  const [isDownloading, setIsDownloading] = useState(false);
+
+  const handleDownloadCV = async () => {
+    try {
+      setIsDownloading(true);
+      
+      // Create a temporary link element
+      const link = document.createElement('a');
+      link.href = '/Benjamin_CV.pdf'; // Make sure this matches your CV file name exactly
+      link.download = 'Benjamin_CV.pdf';
+      
+      // Test if the file exists before triggering download
+      const response = await fetch(link.href);
+      if (!response.ok) {
+        throw new Error('CV file not found');
+      }
+      
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } catch (error) {
+      console.error('Error downloading CV:', error);
+      alert('Sorry, the CV file is not available at the moment. Please try again later.');
+    } finally {
+      setIsDownloading(false);
+    }
   };
 
   return (
@@ -43,13 +62,18 @@ const Home = () => {
             >
               <button
                 onClick={handleDownloadCV}
-                className="btn-primary flex items-center space-x-2"
+                disabled={isDownloading}
+                className={`btn-primary flex items-center space-x-2 ${
+                  isDownloading ? 'opacity-75 cursor-not-allowed' : ''
+                }`}
               >
-                <ArrowDownTrayIcon className="h-5 w-5" />
-                <span>Download CV</span>
+                <ArrowDownTrayIcon className={`h-5 w-5 ${
+                  isDownloading ? 'animate-bounce' : ''
+                }`} />
+                <span>{isDownloading ? 'Downloading...' : 'Download CV'}</span>
               </button>
               <Link to="/contact" className="btn-primary bg-transparent border-2 border-secondary text-secondary hover:bg-secondary hover:text-primary">
-                Contact Me
+                Hire Me
               </Link>
             </motion.div>
           </motion.div>
@@ -67,7 +91,7 @@ const Home = () => {
               {/* Image Container */}
               <div className="absolute inset-0 overflow-hidden rounded-[2rem] rotate-45 border-4 border-secondary">
                 <img
-                  src="/profile.jpg"
+                  src="/profile.jpeg"
                   alt="Benjamin"
                   className="absolute inset-0 w-full h-full object-cover -rotate-45 scale-[1.6]"
                 />

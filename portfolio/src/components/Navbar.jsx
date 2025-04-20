@@ -13,6 +13,20 @@ const Navbar = () => {
     { name: 'Contact', path: '/contact' },
   ];
 
+  // Animation variants for the coding symbol
+  const symbolVariants = {
+    animate: {
+      rotate: [0, 10, -10, 10, 0],
+      scale: [1, 1.1, 1],
+      transition: {
+        duration: 2,
+        repeat: Infinity,
+        repeatType: "reverse",
+        ease: "easeInOut"
+      }
+    }
+  };
+
   return (
     <motion.nav
       initial={{ y: -100 }}
@@ -22,8 +36,18 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-4 py-4">
         <div className="flex justify-between items-center">
-          <Link to="/" className="text-2xl font-bold text-secondary">
-            Portfolio
+          <Link to="/" className="text-2xl font-bold text-secondary group">
+            <motion.div
+              variants={symbolVariants}
+              animate="animate"
+              className="inline-flex items-center space-x-2"
+            >
+              <span className="font-mono transform hover:scale-110 transition-transform">
+                {"<"}
+                <span className="text-white">B</span>
+                {"/>"}
+              </span>
+            </motion.div>
           </Link>
 
           {/* Desktop Navigation */}
