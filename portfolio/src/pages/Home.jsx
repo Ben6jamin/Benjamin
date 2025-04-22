@@ -91,7 +91,7 @@ const Home = () => {
               {/* Image Container */}
               <div className="absolute inset-0 overflow-hidden rounded-[1.5rem] md:rounded-[2rem] rotate-45 border-2 md:border-4 border-secondary">
                 <img
-                  src="/images/profile.jpeg"
+                  src="/images/Ben.jpg"
                   alt="Benjamin"
                   className="absolute inset-0 w-full h-full object-cover -rotate-45 scale-[1.4] md:scale-[1.6]"
                 />
