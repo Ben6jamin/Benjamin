@@ -80,27 +80,72 @@ const Home = () => {
 
           {/* Profile Image Section */}
           <motion.div
-            initial={{ opacity: 0, y: -100 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ 
-              duration: 0.8,
-              type: "spring",
-              stiffness: 100,
-              damping: 15
+            initial="hidden"
+            animate="visible"
+            variants={{
+              hidden: { opacity: 0 },
+              visible: {
+                opacity: 1,
+                transition: {
+                  duration: 0.8,
+                  staggerChildren: 0.2
+                }
+              }
             }}
             className="relative w-full max-w-[280px] md:max-w-md mx-auto md:ml-auto mt-8 md:mt-0"
           >
             <div className="aspect-square relative">
-              {/* Circular Border */}
-              <div className="absolute inset-0 bg-gradient-to-r from-secondary to-secondary/70 rounded-full"></div>
+              {/* Glowing Border */}
+              <motion.div
+                variants={{
+                  hidden: { opacity: 0, scale: 0.8 },
+                  visible: { 
+                    opacity: 1, 
+                    scale: 1,
+                    transition: {
+                      duration: 0.5,
+                      ease: "easeOut"
+                    }
+                  }
+                }}
+                className="absolute inset-0 bg-gradient-to-r from-secondary to-secondary/70 rounded-full animate-pulse"
+                style={{
+                  boxShadow: "0 0 20px rgba(255, 255, 255, 0.5), 0 0 40px rgba(255, 255, 255, 0.3)"
+                }}
+              />
               {/* Image Container */}
-              <div className="absolute inset-0 overflow-hidden rounded-full border-2 md:border-4 border-secondary">
-                <img
+              <motion.div
+                variants={{
+                  hidden: { opacity: 0, scale: 0.8, y: -50 },
+                  visible: { 
+                    opacity: 1, 
+                    scale: 1,
+                    y: 0,
+                    transition: {
+                      duration: 0.8,
+                      ease: "easeOut"
+                    }
+                  }
+                }}
+                className="absolute inset-0 overflow-hidden rounded-full border-2 md:border-4 border-secondary"
+              >
+                <motion.img
+                  variants={{
+                    hidden: { opacity: 0, scale: 1.2 },
+                    visible: { 
+                      opacity: 1, 
+                      scale: 1,
+                      transition: {
+                        duration: 0.8,
+                        ease: "easeOut"
+                      }
+                    }
+                  }}
                   src="/images/Benjamin.jpeg"
                   alt="Benjamin"
                   className="absolute inset-0 w-full h-full object-cover"
                 />
-              </div>
+              </motion.div>
             </div>
           </motion.div>
         </div>
