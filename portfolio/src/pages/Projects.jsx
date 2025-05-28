@@ -3,11 +3,11 @@ import { motion } from 'framer-motion';
 const Projects = () => {
   const projects = [
     {
-      title: 'E-commerce Platform',
+      title: 'weather-dashboard',
       description: 'A full-featured e-commerce platform built with React and Node.js',
       technologies: ['React', 'Node.js', 'MongoDB', 'Express'],
       image: 'https://via.placeholder.com/400x300',
-      link: '#',
+      link: 'https://weather-dashboard-ashy-xi.vercel.app/',
     },
     {
       title: 'Task Management App',
