@@ -91,7 +91,7 @@ const Home = () => {
               {/* Image Container */}
               <div className="absolute inset-0 overflow-hidden rounded-full border-2 md:border-4 border-secondary">
                 <img
-                  src="/images/Ben.jpg"
+                  src="/images/Benjamin.jpeg"
                   alt="Benjamin"
                   className="absolute inset-0 w-full h-full object-cover"
                 />
