@@ -86,14 +86,14 @@ const Home = () => {
             className="relative w-full max-w-[280px] md:max-w-md mx-auto md:ml-auto mt-8 md:mt-0"
           >
             <div className="aspect-square relative">
-              {/* Hexagon Border */}
-              <div className="absolute inset-0 bg-gradient-to-r from-secondary to-secondary/70 rounded-[1.5rem] md:rounded-[2rem] rotate-45 transform -translate-y-2 md:-translate-y-4"></div>
+              {/* Circular Border */}
+              <div className="absolute inset-0 bg-gradient-to-r from-secondary to-secondary/70 rounded-full"></div>
               {/* Image Container */}
-              <div className="absolute inset-0 overflow-hidden rounded-[1.5rem] md:rounded-[2rem] rotate-45 border-2 md:border-4 border-secondary">
+              <div className="absolute inset-0 overflow-hidden rounded-full border-2 md:border-4 border-secondary">
                 <img
                   src="/images/Ben.jpg"
                   alt="Benjamin"
-                  className="absolute inset-0 w-full h-full object-cover -rotate-45 scale-[1.4] md:scale-[1.6]"
+                  className="absolute inset-0 w-full h-full object-cover"
                 />
               </div>
             </div>
