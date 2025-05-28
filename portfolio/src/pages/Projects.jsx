@@ -10,18 +10,18 @@ const Projects = () => {
       link: 'https://weather-dashboard-ashy-xi.vercel.app/',
     },
     {
-      title: 'Task Management App',
-      description: 'A collaborative task management application with real-time updates',
-      technologies: ['React', 'Firebase', 'Material UI'],
-      image: 'https://via.placeholder.com/400x300',
-      link: '#',
+      title: 'Funhealth',
+      description: 'A youth-led digital health platform by Kundwa Health organization, dedicated to empowering young people with accessible health information and services. The platform focuses on sexual & reproductive health, mental health, and youth empowerment through interactive digital tools and mentorship programs.',
+      technologies: ['React', 'MONGDB', 'Material UI','NODE.js'],
+      image: '/images/funhealth.png',
+      link: 'https://funhealth.netlify.app/home',
     },
     {
-      title: 'Portfolio Website',
-      description: 'A modern portfolio website showcasing my work and skills',
-      technologies: ['React', 'Tailwind CSS', 'Framer Motion'],
-      image: 'https://via.placeholder.com/400x300',
-      link: '#',
+      title: 'AgriTech Market Connect',
+      description: 'A mobile application designed to empower smallholder farmers in Rwanda by providing real-time, localized market pricing and trend information. This user-centered solution aims to improve market access, enhance agricultural productivity, and create a more efficient market network for farmers.',
+      technologies: ['Flutter', 'Firebase', 'OpenWeather API', 'Google Maps API', 'Dart'],
+      image: '/images/agritech.jpg',
+      link: 'https://drive.google.com/file/d/1SyafZVts2byCdtqT5tAoVJ52fFfX9UVr/view?usp=sharing',
     },
   ];
 
