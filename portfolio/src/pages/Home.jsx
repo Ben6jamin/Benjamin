@@ -80,9 +80,14 @@ const Home = () => {
 
           {/* Profile Image Section */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5 }}
+            initial={{ opacity: 0, y: -100 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ 
+              duration: 0.8,
+              type: "spring",
+              stiffness: 100,
+              damping: 15
+            }}
             className="relative w-full max-w-[280px] md:max-w-md mx-auto md:ml-auto mt-8 md:mt-0"
           >
             <div className="aspect-square relative">
