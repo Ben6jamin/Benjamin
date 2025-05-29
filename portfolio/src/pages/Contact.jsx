@@ -56,10 +56,18 @@ const Contact = () => {
     setStatus({ submitting: true, submitted: false, error: null });
 
     try {
-      const result = await emailjs.sendForm(
+      // Add reply_to parameter to show sender's email
+      const templateParams = {
+        from_name: formData.user_name,
+        from_email: formData.user_email,
+        message: formData.message,
+        reply_to: formData.user_email
+      };
+
+      const result = await emailjs.send(
         'service_rrybg2e',
         'template_0e3jh8n',
-        form.current,
+        templateParams,
         'SYP-GQVFZApCTnK9x'
       );
 
